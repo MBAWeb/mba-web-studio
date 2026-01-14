@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import { BrandMark } from "./BrandMark";
 
 
@@ -10,10 +10,14 @@ export function Layout({ children }) {
     <div className="min-h-dvh">
       <header className="navBar">
   <div className="containerPage h-16 flex items-center justify-between">
-    <BrandMark />
+    <Link to="/" aria-label="Go to home"><BrandMark /></Link>
+
 
     {/* Desktop nav */}
     <nav className="hidden md:flex items-center gap-6">
+      <NavLink className={({ isActive }) => `navLink ${isActive ? "navLinkActive" : ""}`} to="/" end>
+        Home
+      </NavLink>
       <NavLink className={({ isActive }) => `navLink ${isActive ? "navLinkActive" : ""}`} to="/work">
         Work
       </NavLink>
@@ -23,7 +27,10 @@ export function Layout({ children }) {
       <NavLink className={({ isActive }) => `navLink ${isActive ? "navLinkActive" : ""}`} to="/contact">
         Contact
       </NavLink>
-      <button className="btnPrimary" type="button">Start a project</button>
+      <Link to="/contact" className="btn btnPrimary">
+        Start a project
+      </Link>
+
     </nav>
 
     {/* Mobile toggle */}
@@ -44,35 +51,54 @@ export function Layout({ children }) {
       <div className="containerPage pb-4">
         <div className="card cardPad">
           <div className="grid gap-2">
+              <NavLink
+                to="/"
+                end
+                className={({ isActive }) =>
+                `navLink navLinkBlock ${isActive ? "navLinkActive" : ""}`
+                }
+                onClick={() => setOpen(false)}
+              >
+                Home
+              </NavLink>
+
+
             <NavLink
               to="/work"
-              className="navLink navLinkBlock"
+              className={({ isActive }) =>
+                `navLink navLinkBlock ${isActive ? "navLinkActive" : ""}`
+              }
               onClick={() => setOpen(false)}
             >
               Work
             </NavLink>
             <NavLink
               to="/services"
-              className="navLink navLinkBlock"
+              className={({ isActive }) =>
+                `navLink navLinkBlock ${isActive ? "navLinkActive" : ""}`
+              }
               onClick={() => setOpen(false)}
             >
               Services
             </NavLink>
             <NavLink
               to="/contact"
-              className="navLink navLinkBlock"
+              className={({ isActive }) =>
+                `navLink navLinkBlock ${isActive ? "navLinkActive" : ""}`
+              }
               onClick={() => setOpen(false)}
             >
               Contact
             </NavLink>
 
-            <button
+            <Link
+              to="/contact"
               className="btnPrimary mt-2 w-full"
-              type="button"
               onClick={() => setOpen(false)}
             >
               Start a project
-            </button>
+            </Link>
+
           </div>
         </div>
       </div>
@@ -85,7 +111,9 @@ export function Layout({ children }) {
 
       <footer className="py-10">
         <div className="containerPage flex items-center justify-between">
-          <BrandMark variant="micro" />
+          <Link to="/" aria-label="Go to home">
+            <BrandMark variant="micro" />
+          </Link>
           <span className="muted">© {new Date().getFullYear()} MBA Web Studio</span>
         </div>
       </footer>
