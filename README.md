@@ -1,16 +1,45 @@
-# React + Vite
+# MBA Web Studio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+MBA Web Studio is a modern React + Vite project built step-by-step with a focus on
+clean architecture, reusable styling, and professional frontend patterns.
 
-Currently, two official plugins are available:
+This project emphasizes:
+- semantic Tailwind CSS (via `@layer components`)
+- clean JSX (no utility soup)
+- scalable layout and routing
+- brand-driven design tokens
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **React** (Vite)
+- **Tailwind CSS**
+  - semantic component classes
+  - brand color system
+- **React Router**
+- **Sass (SCSS)** – standby for future theming
+- **Git + GitHub**
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Project Structure
+
+```text
+src/
+├─ components/
+│  ├─ Layout.jsx        # Global layout (header, footer, nav)
+│  └─ BrandMark.jsx     # Logo / brand component (micro + animated)
+│
+├─ pages/
+│  ├─ Home.jsx
+│  ├─ Work.jsx
+│  ├─ Services.jsx
+│  └─ Contact.jsx
+│
+├─ styles/
+│  └─ tokens.scss       # Brand tokens (SCSS standby)
+│
+├─ globals.css          # Tailwind layers + semantic classes
+├─ App.jsx              # Router + layout wiring
+└─ main.jsx             # App entry point
