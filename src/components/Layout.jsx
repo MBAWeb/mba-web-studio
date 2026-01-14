@@ -7,9 +7,9 @@ export function Layout({ children }) {
         <div className="containerPage h-16 flex items-center justify-between">
           <BrandMark />
           <nav className="flex items-center gap-6">
-            <a className="navLink" href="#work">Work</a>
-            <a className="navLink" href="#services">Services</a>
-            <a className="navLink" href="#contact">Contact</a>
+            <a className="navLink" href="/work">Work</a>
+            <a className="navLink" href="/services">Services</a>
+            <a className="navLink" href="/contact">Contact</a>
             <button className="btnPrimary">Start a project</button>
           </nav>
         </div>
