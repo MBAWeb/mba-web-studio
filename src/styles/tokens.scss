@@ -1,0 +1,17 @@
+/* MBA Web Studio — Brand Tokens (SCSS standby) */
+
+/* SCSS variables */
+$bg: #0F172A;
+$surface: #1E293B;
+$accent: #22D3EE;
+$text: #F8FAFC;
+$muted: #94A3B8;
+
+/* Optional: also expose as CSS variables for future theming */
+:root {
+  --bg: #{$bg};
+  --surface: #{$surface};
+  --accent: #{$accent};
+  --text: #{$text};
+  --muted: #{$muted};
+}
