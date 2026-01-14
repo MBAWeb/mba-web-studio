@@ -11,8 +11,8 @@ export function Home() {
             </p>
 
             <div className="mt-6 flex flex-wrap gap-3">
-              <button className="btnPrimary">View services</button>
-              <button className="btnGhost">See work</button>
+              <a className="btnPrimary" href="#services">View services</a>
+              <a className="btnGhost" href="#work">See work</a>
             </div>
 
             <div className="mt-6 muted">Brand: bg / surface / accent / text / muted</div>
@@ -20,10 +20,10 @@ export function Home() {
         </div>
       </section>
 
-      <section id="work" className="sectionPad">
-        <div className="containerPage">
-            <div className="card cardPad">
-                <h2 className="h2">Selected Work</h2>
+        <section id="work" className="sectionPad">
+            <div className="containerPage">
+                <div className="card cardPad">
+                    <h2 className="h2">Selected Work</h2>
                     <p className="p mt-2 text-sm text-text/80">
                         Case studies coming soon — this section will showcase recent builds and results.
                     </p>
@@ -39,7 +39,6 @@ export function Home() {
                 </div>
             </div>
         </section>
-
 
       <section id="services" className="sectionPad">
         <div className="containerPage grid gap-6 sm:grid-cols-3">
