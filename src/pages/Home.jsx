@@ -20,6 +20,27 @@ export function Home() {
         </div>
       </section>
 
+      <section id="work" className="sectionPad">
+        <div className="containerPage">
+            <div className="card cardPad">
+                <h2 className="h2">Selected Work</h2>
+                    <p className="p mt-2 text-sm text-text/80">
+                        Case studies coming soon — this section will showcase recent builds and results.
+                    </p>
+
+                    <div className="mt-6 grid gap-4 sm:grid-cols-3">
+                        {["Landing Systems", "Design Systems", "Performance"].map((t) => (
+                            <div key={t} className="card cardPad bg-bg/30">
+                                <div className="muted">Category</div>
+                                <div className="mt-1 font-medium">{t}</div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
       <section id="services" className="sectionPad">
         <div className="containerPage grid gap-6 sm:grid-cols-3">
           {["Design", "Build", "Launch"].map((t) => (
