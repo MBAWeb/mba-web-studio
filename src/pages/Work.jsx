@@ -1,31 +1,7 @@
 import { Link } from "react-router-dom";
-
+import { caseStudies } from "../content/caseStudies";
 
 export default function Work() {
-  const cases = [
-    {
-      title: "Marketing Landing System",
-      summary: "Reusable landing blocks + conversion-focused layout.",
-      role: "Design + Frontend",
-      stack: ["React", "Tailwind", "Vite"],
-      outcome: "Systemized new pages with consistent UI and faster iteration.",
-    },
-    {
-      title: "Design System Scaffold",
-      summary: "Tokens + semantic Tailwind layers for clean JSX.",
-      role: "UI Systems",
-      stack: ["Tailwind", "PostCSS", "SCSS Tokens"],
-      outcome: "Reduced styling drift and improved maintainability.",
-    },
-    {
-      title: "Performance Optimization",
-      summary: "Bundle cleanup and UX-focused performance improvements.",
-      role: "Perf + DX",
-      stack: ["Vite", "Code Splitting", "Audit"],
-      outcome: "Faster loads and cleaner build output.",
-    },
-  ];
-
   return (
     <section className="sectionPad">
       <div className="containerPage">
@@ -39,14 +15,18 @@ export default function Work() {
         </div>
 
         <div className="mt-8 grid gap-6 lg:grid-cols-2">
-          {cases.map((c) => (
-            <article key={c.title} className="card cardPad cardHover">
+          {caseStudies.map((c) => (
+            <article key={c.slug} className="card cardPad cardHover">
               <div className="flex items-start justify-between gap-4">
                 <div>
-                  <h2 className="text-xl font-semibold tracking-tight">{c.title}</h2>
-                  <p className="p mt-2 text-sm text-text/80">{c.summary}</p>
+                  <h2 className="text-xl font-semibold tracking-tight">
+                    {c.title}
+                  </h2>
+                  <p className="p mt-2 text-sm text-text/80">
+                    {c.summary}
+                  </p>
                 </div>
-                <span className="pill">Case Study</span>
+                <span className="pill">{c.pill}</span>
               </div>
 
               <div className="mt-6 grid gap-4 sm:grid-cols-3">
@@ -59,7 +39,9 @@ export default function Work() {
                   <div className="muted">Stack</div>
                   <div className="mt-2 flex flex-wrap gap-2">
                     {c.stack.map((t) => (
-                      <span key={t} className="chip">{t}</span>
+                      <span key={t} className="chip">
+                        {t}
+                      </span>
                     ))}
                   </div>
                 </div>
@@ -67,12 +49,18 @@ export default function Work() {
 
               <div className="mt-6">
                 <div className="muted">Outcome</div>
-                <p className="p mt-2 text-sm text-text/80">{c.outcome}</p>
+                <p className="p mt-2 text-sm text-text/80">
+                  {c.outcome}
+                </p>
               </div>
 
               <div className="mt-6 flex flex-wrap gap-3">
-                <Link to="/work/sample-case-study" className="btn btnPrimary">View details</Link>
-                <button className="btnPrimary" type="button">Start a similar project</button>
+                <Link to={`/work/${c.slug}`} className="btn btnPrimary">
+                  View details
+                </Link>
+                <Link to="/contact" className="btn btnGhost">
+                  Start a similar project
+                </Link>
               </div>
             </article>
           ))}
