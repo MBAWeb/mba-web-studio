@@ -37,4 +37,22 @@
   /* Nav */
   .navBar  { @apply sticky top-0 z-40 bg-bg/70 backdrop-blur ring-1 ring-white/10; }
   .navLink { @apply text-sm text-text/80 hover:text-text transition; }
+  .navLinkActive { @apply text-text; }
+  .navLinkBlock { @apply block rounded-lg px-3 py-2 hover:bg-white/5; }
+
+  /* BrandMark */
+  .brandCorner { @apply pointer-events-none absolute h-2.5 w-2.5 transition-transform; }
+  .brandCornerTL { @apply -top-px -left-px rounded-tl-md border-l-2 border-t-2 border-accent; }
+  .brandCornerBR { @apply -bottom-px -right-px rounded-br-md border-b-2 border-r-2 border-accent; }
+
+  /* subtle motion on hover (only in header) */
+  header .relative:hover .brandCornerTL { @apply -translate-x-[1px] -translate-y-[1px]; }
+  header .relative:hover .brandCornerBR { @apply translate-x-[1px] translate-y-[1px]; }
+
+
+
+  .pill { @apply rounded-full bg-bg/40 px-3 py-1 text-xs text-text/80 ring-1 ring-white/10; }
+  .chip { @apply rounded-full bg-bg/30 px-3 py-1 text-xs text-text/80 ring-1 ring-white/10; }
+  .cardHover { @apply transition hover:-translate-y-0.5 hover:ring-white/20 focus-within:ring-white/20; }
+
 }
