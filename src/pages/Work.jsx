@@ -1,4 +1,7 @@
-export function Work() {
+import { Link } from "react-router-dom";
+
+
+export default function Work() {
   const cases = [
     {
       title: "Marketing Landing System",
@@ -68,7 +71,7 @@ export function Work() {
               </div>
 
               <div className="mt-6 flex flex-wrap gap-3">
-                <button className="btnGhost" type="button">View details</button>
+                <Link to="/work/sample-case-study" className="btn btnPrimary">View details</Link>
                 <button className="btnPrimary" type="button">Start a similar project</button>
               </div>
             </article>
