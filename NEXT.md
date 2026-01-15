@@ -1,101 +1,103 @@
-# NEXT
+# NEXT.md — MBA Web Studio
 
-This file tracks intentional next steps for the MBA Web Studio site.
-Only resume work deliberately from here.
+This document tracks post-v1 improvements and future enhancements.
+v1 is complete, deployed, and stable.
 
----
-
-## ✅ Completed Milestones
-
-- Vite + React scaffold
-- Tailwind CSS with semantic `@layer components`
-- Brand color system
-- `globals.css` cleaned and stabilized
-- SCSS `tokens.scss` added (standby)
-- Layout wrapper with header/footer
-- BrandMark component (micro + animated)
-- React Router (Home / Work / Services / Contact)
-- Active nav links (`NavLink`)
-- Mobile navigation
-- Services page (content complete)
-- Contact page
-  - Controlled inputs
-  - Validation and submit states
-  - Success feedback
-  - Accessible input styling
-- Work page
-  - Data-driven from case study source
-  - Clean card layout
-  - CTA routing wired
-- Case study detail pages
-  - Dynamic route (`/work/:slug`)
-  - Not-found handling
-  - Back navigation
-  - Role / Stack / Outcome sections
-- Repo stabilized
-  - Import/export consistency
-  - File casing issues resolved
+Nothing in this file is required immediately.
+Items are intentionally grouped by priority and scope.
 
 ---
 
-## 🧠 Current State
+## Phase 2 — Content & Case Studies (Highest Priority)
 
-- One real case study is intentionally displayed
-- Content is static and data-driven (no backend)
-- Architecture supports future scaling without refactor
-- Site is stable, readable, and intentional
+### Add real case studies
+- Replace placeholder content with real project data
+- Ensure each case study includes:
+  - Clear problem statement
+  - Constraints & tradeoffs
+  - Outcome (quantitative if possible)
 
----
+### Featured Case Study pattern
+- One featured case study on Home
+- Larger card variant with:
+  - Image / screenshot
+  - Short summary
+  - Clear CTA
 
-## 🔜 Next Options (Pick One)
-
-### Option 1 — Case Study Polish
-- Improve typography rhythm on detail pages
-- Add optional sections (Challenges, Learnings)
-- Prepare layout for future screenshots/images
-
-### Option 2 — Component Extraction
-- Extract reusable `<ProjectCard />`
-- Extract form input components (optional)
-- Reduce JSX repetition
-
-### Option 3 — Home Page Refinement
-- Feature the case study more prominently
-- Tighten narrative and CTA flow
-- Remove any remaining placeholder copy
-
-### Option 4 — UI / UX & Accessibility
-- Hover and focus polish on cards
-- Keyboard and focus accessibility pass
-- Mobile navigation animation refinement
-
-### Option 5 — SEO & Metadata
-- Per-route titles and meta descriptions
-- Open Graph defaults
-- Social preview polish
+### Media support
+- Add screenshots to case studies
+- Support:
+  - Full-width media
+  - Inset media
+  - Captions
+- Lazy-load images
 
 ---
 
-## 🚫 Explicitly Out of Scope (For Now)
+## Phase 3 — Design & UX Polish
 
-- Backend or CMS integration
-- Multiple placeholder case studies
-- Blog system
-- Premature optimization
+### Micro-interactions
+- Subtle hover transitions on cards
+- Optional:
+  - Focus states
+  - Reduced-motion support
+
+### Visual hierarchy refinements
+- Refine spacing rhythm between sections
+- Optional gradient dividers between major sections
+
+### Theming improvements (optional)
+- Light mode experiment
+- Or multiple accent themes (future-proof tokens already exist)
 
 ---
 
-## 🔒 Locked-In Decisions
+## Phase 4 — SEO & Sharing (Optional)
 
-- Tailwind is used **semantically**, not utility-heavy
-- JSX remains clean and readable
-- Layout and routing stay centralized
-- Naming changes only when clearly beneficial
+### Metadata improvements
+- Per-route `<title>` and `<meta description>`
+- Open Graph tags for social sharing
+- Twitter card support
+
+### Structured data
+- Basic schema.org:
+  - Person or Organization
+  - Website
 
 ---
 
-## Notes for Future Me
+## Phase 5 — DX & Maintainability
 
-- Project is stable — avoid feature creep
-- Favor intentional content over filler
-- Resume work deliberately
+### Content organization
+- Consider moving case studies to:
+  - Markdown, or
+  - A separate data layer
+
+### Utilities
+- Small helpers for:
+  - Slug generation
+  - Route metadata
+  - Image handling
+
+### Testing (only if needed)
+- Basic smoke tests for routes
+- Not required unless site grows
+
+---
+
+## Explicitly Out of Scope (for now)
+
+- Redux / global state
+- Backend / CMS
+- Authentication
+- Animations libraries
+- Overly complex build tooling
+
+---
+
+## Guiding Principles
+
+- Ship small
+- Design with real content
+- Optimize only when necessary
+- Keep the codebase understandable at a glance
