@@ -55,7 +55,7 @@
 
 
   /* Reusable Components */
-  .pill { @apply rounded-full bg-bg/40 px-3 py-1 text-xs text-text/80 ring-1 ring-white/10; }
+  .pill { @apply inline-flex whitespace-nowrap rounded-full bg-bg/40 px-3 py-1 text-xs text-text/80 ring-1 ring-white/10; }
   .chip { @apply rounded-full bg-bg/30 px-3 py-1 text-xs text-text/80 ring-1 ring-white/10; }
   .cardHover { @apply transition hover:-translate-y-0.5 hover:ring-white/20 focus-within:ring-white/20; }
 
