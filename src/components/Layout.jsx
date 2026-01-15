@@ -7,10 +7,10 @@ export function Layout({ children }) {
   const [open, setOpen] = useState(false);
 
   return (
-    <div className="min-h-dvh">
-      <header className="navBar">
-  <div className="containerPage h-16 flex items-center justify-between">
-    <Link to="/" aria-label="Go to home"><BrandMark /></Link>
+    <div className="min-h-dvh ambientBg">
+      <header className="navBar relative z-10">
+    <div className="containerPage h-16 flex items-center justify-between">
+      <Link to="/" aria-label="Go to home"><BrandMark /></Link>
 
 
     {/* Desktop nav */}
@@ -62,7 +62,6 @@ export function Layout({ children }) {
                 Home
               </NavLink>
 
-
             <NavLink
               to="/work"
               className={({ isActive }) =>
@@ -98,7 +97,6 @@ export function Layout({ children }) {
             >
               Start a project
             </Link>
-
           </div>
         </div>
       </div>
@@ -107,9 +105,9 @@ export function Layout({ children }) {
 </header>
 
 
-      <main>{children}</main>
+      <main className="relative z-10">{children}</main>
 
-      <footer className="py-10">
+      <footer className="py-10 relative z-10">
         <div className="containerPage flex items-center justify-between">
           <Link to="/" aria-label="Go to home">
             <BrandMark variant="micro" />

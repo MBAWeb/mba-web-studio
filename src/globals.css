@@ -7,11 +7,12 @@
   html {
     scroll-behavior: smooth;
   }
-  html, body {
+
+  html,
+  body {
     @apply bg-bg text-text;
   }
 }
-
 
 /* Semantic component classes (keeps JSX clean) */
 @layer components {
@@ -20,8 +21,59 @@
   .sectionPad    { @apply py-10 sm:py-14; }
 
   /* Surfaces */
-  .card    { @apply rounded-xl2 bg-surface shadow-soft ring-1 ring-white/10; }
+  .card {
+    @apply rounded-xl2 bg-surface/90
+           shadow-[0_10px_30px_-10px_rgba(0,0,0,0.6)]
+           ring-1 ring-white/10
+           backdrop-blur-sm;
+  }
+
   .cardPad { @apply p-5 sm:p-6; }
+
+  .cardHover {
+    @apply transition
+           hover:-translate-y-1
+           hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.7)]
+           hover:ring-white/20
+           focus-within:ring-white/20;
+  }
+
+  /* Tech edge motif (gradient border) */
+  .cardEdge {
+    position: relative;
+  }
+
+  .cardEdge::before {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    background: linear-gradient(
+      135deg,
+      rgba(56, 189, 248, 0.35),
+      rgba(99, 102, 241, 0.20),
+      rgba(56, 189, 248, 0.12)
+    );
+    opacity: 0.32;
+    pointer-events: none;
+    z-index: 0;
+
+    /* border-only mask */
+    mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    padding: 1px;
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+  }
+
+  .cardEdgeHover:hover::before,
+  .cardEdgeHover:focus-within::before {
+    opacity: 0.55;
+    filter: drop-shadow(0 0 18px rgba(56, 189, 248, 0.18));
+  }
+
+  /* Ensures card content sits above the edge pseudo-element */
+  .cardInner { position: relative; z-index: 1; }
 
   /* Typography */
   .h1    { @apply text-3xl sm:text-4xl font-semibold tracking-tight; }
@@ -30,8 +82,23 @@
   .muted { @apply text-sm text-muted; }
 
   /* New helpers */
-  .subtle  { @apply text-text/70; }   /* muted color, keeps normal size */
-  .measure { @apply max-w-3xl; }      /* readable line length for prose */
+  .subtle  { @apply text-text/70; }
+  .measure { @apply max-w-3xl; }
+
+  /* Global ambient background */
+  .ambientBg { position: relative; }
+
+  .ambientBg::before {
+    content: "";
+    position: fixed;
+    inset: -30%;
+    background:
+      radial-gradient(circle at 20% 10%, rgba(56, 189, 248, 0.14), transparent 55%),
+      radial-gradient(circle at 80% 30%, rgba(99, 102, 241, 0.10), transparent 60%),
+      radial-gradient(circle at 50% 90%, rgba(56, 189, 248, 0.08), transparent 60%);
+    pointer-events: none;
+    z-index: 0;
+  }
 
   /* Buttons */
   .btn        { @apply inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2 text-sm font-medium transition; }
@@ -53,29 +120,25 @@
   header .relative:hover .brandCornerTL { @apply -translate-x-[1px] -translate-y-[1px]; }
   header .relative:hover .brandCornerBR { @apply translate-x-[1px] translate-y-[1px]; }
 
-
   /* Reusable Components */
   .pill { @apply inline-flex whitespace-nowrap rounded-full bg-bg/40 px-3 py-1 text-xs text-text/80 ring-1 ring-white/10; }
   .chip { @apply rounded-full bg-bg/30 px-3 py-1 text-xs text-text/80 ring-1 ring-white/10; }
-  .cardHover { @apply transition hover:-translate-y-0.5 hover:ring-white/20 focus-within:ring-white/20; }
 
   /* Case study media */
   .mediaFrame { @apply card overflow-hidden; }
-  .mediaInner { @apply aspect-[16/9] w-full bg-white/5; } /* placeholder surface */
+  .mediaInner { @apply aspect-[16/9] w-full bg-white/5; }
   .mediaCap   { @apply mt-3 text-sm text-text/70; }
 
+  /* Inputs */
   .input {
-  @apply w-full rounded-lg border border-muted/30
-         bg-surface text-text
-         px-3 py-2
-         focus:outline-none focus:ring-2 focus:ring-accent/50;
-}
+    @apply w-full rounded-lg border border-muted/30
+           bg-surface text-text px-3 py-2
+           focus:outline-none focus:ring-2 focus:ring-accent/50;
+  }
 
-.textarea {
-  @apply w-full rounded-lg border border-muted/30
-         bg-surface text-text
-         px-3 py-2
-         focus:outline-none focus:ring-2 focus:ring-accent/50;
-}
-
+  .textarea {
+    @apply w-full rounded-lg border border-muted/30
+           bg-surface text-text px-3 py-2
+           focus:outline-none focus:ring-2 focus:ring-accent/50;
+  }
 }
